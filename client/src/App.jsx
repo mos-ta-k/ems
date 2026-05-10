@@ -9,12 +9,34 @@ import Leave from "./pages/Leave";
 import Payslips from "./pages/Payslips";
 import Settings from "./pages/Settings";
 import PrintPayslip from "./pages/PrintPayslip";
+import LoginForm from "./components/LoginForm";
 const App = () => {
   return (
     <>
       <Toaster />
       <Routes>
         <Route path="/login" element={<LoginLanding />} />
+        <Route
+          path="/login/admin"
+          element={
+            <LoginForm
+              role="admin"
+              title="Admin Portal"
+              subtitle="Sign in to your admin account"
+            />
+          }
+        />
+        <Route
+          path="/login/employee"
+          element={
+            <LoginForm
+              role="employee"
+              title="Employee Portal"
+              subtitle="Sign in to your employee account"
+            />
+          }
+        />
+
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/employees" element={<Employees />} />
